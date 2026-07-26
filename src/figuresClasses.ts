@@ -18,12 +18,16 @@ export class Triangle implements Figure {
     const biggestSt: number = Math.max(a, b, c);
     const sum: number = a + b + c;
 
-    if (a <= 0 || b <= 0 || c <= 0) {
-      throw new Error('your error message');
+    if (a <= 0) {
+      throw new Error('Side A must be greater than 0');
+    } else if (b <= 0) {
+      throw new Error('Side B must be greater than 0');
+    } else if (c <= 0) {
+      throw new Error('Side C must be greater than 0');
     }
 
     if (biggestSt >= sum - biggestSt) {
-      throw new Error('your error message');
+      throw new Error('These sides cannot form a valid triangle');
     }
   }
 
@@ -43,7 +47,7 @@ export class Circle implements Figure {
     public radius: number,
   ) {
     if (radius <= 0) {
-      throw new Error('your error message');
+      throw new Error('Radius must be greater than 0');
     }
   }
 
@@ -60,8 +64,10 @@ export class Rectangle implements Figure {
     public width: number,
     public height: number,
   ) {
-    if (width <= 0 || height <= 0) {
-      throw new Error('your error message');
+    if (width <= 0) {
+      throw new Error('Width must be greater than 0');
+    } else if (height <= 0) {
+      throw new Error('Height must be greater than 0');
     }
   }
 
